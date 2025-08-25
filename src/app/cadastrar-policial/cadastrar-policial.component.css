@@ -1,0 +1,345 @@
+.form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Animação fade para mensagens */
+.animated-fade {
+    animation: fadeIn 0.7s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-app {
+    width: 100vw;
+    text-align: center;
+    margin-top: 2.5rem;
+    color: #7b8ca6;
+    font-size: 0.98rem;
+    padding-bottom: 1.2rem;
+    letter-spacing: 0.2px;
+}
+
+.footer-title {
+    font-size: 1.13rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.5px;
+}
+
+
+/* Fundo com gradiente moderno */
+.form-bg {
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.form-center {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-card {
+    background: #fff;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10), 0 2px 8px rgba(44, 62, 80, 0.06);
+    min-width: 320px;
+    max-width: 420px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    border: 1.5px solid #e3e8f0;
+    align-items: center;
+}
+
+.form-card h2 {
+    text-align: center;
+    margin-bottom: 1.2rem;
+    color: #2d3a4b;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+    width: 100%;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #2d3a4b;
+    margin-bottom: 2px;
+    align-self: flex-start;
+}
+
+.form-group input {
+    padding: 0.55rem 0.85rem;
+    border: 1.5px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    background: #f8fafc;
+    width: 100%;
+    max-width: 320px;
+}
+
+.form-group input:focus {
+    border-color: #4f8cff;
+    box-shadow: 0 0 0 2px #e3f0ff;
+}
+
+.msg-erro {
+    color: #e74c3c;
+    font-size: 0.93rem;
+    margin-top: 2px;
+}
+
+.msg-success {
+    color: #27ae60;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.msg-error {
+    color: #e74c3c;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.msg-loading {
+    color: #2980b9;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.form-actions button {
+    padding: 0.55rem 1.7rem;
+    border: none;
+    border-radius: 7px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 2px rgba(44, 62, 80, 0.04);
+}
+
+.form-actions button[type="submit"] {
+    background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+}
+
+.form-actions button[type="submit"]:hover:not(:disabled) {
+    background: linear-gradient(90deg, #38b6ff 0%, #4f8cff 100%);
+}
+
+.form-actions button[type="submit"]:disabled {
+    background: #b3d1ff;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.form-actions button[type="reset"] {
+    background: #f1f1f1;
+    color: #2d3a4b;
+}
+
+.form-actions button[type="reset"]:hover {
+    background: #e0e0e0;
+}
+
+/* Tabela de policiais cadastrados */
+.lista-policiais {
+    margin: 2.5rem auto 0 auto;
+    max-width: 900px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(44, 62, 80, 0.10);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    border: 1.5px solid #e3e8f0;
+    overflow-x: auto;
+    transition: box-shadow 0.2s;
+}
+
+.lista-policiais table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 1rem;
+    background: #fff;
+    min-width: 600px;
+    box-shadow: 0 1px 2px rgba(44, 62, 80, 0.03);
+}
+
+.lista-policiais thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #eaf4ff;
+    color: #2563eb;
+    font-weight: 700;
+    border-bottom: 2.5px solid #b6d0f7;
+    text-align: left;
+    padding: 0.8rem 0.5rem;
+    letter-spacing: 0.5px;
+    font-size: 1.05rem;
+}
+
+.lista-policiais th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.lista-policiais th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.lista-policiais tbody tr {
+    transition: background 0.18s;
+}
+
+.lista-policiais tbody tr:hover td {
+    background: #f0f6ff;
+}
+
+.lista-policiais td {
+    color: #2d3a4b;
+    border-bottom: 1px solid #e3e8f0;
+    padding: 0.7rem 0.5rem;
+    font-size: 1rem;
+}
+
+.lista-policiais tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+.lista-policiais tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 900px) {
+    .lista-policiais {
+        max-width: 98vw;
+        padding: 1rem 0.2rem;
+    }
+
+    .lista-policiais table {
+        min-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .lista-policiais table {
+        min-width: 400px;
+        font-size: 0.95rem;
+    }
+
+    .lista-policiais th,
+    .lista-policiais td {
+        font-size: 0.93rem;
+        padding: 0.5rem 0.3rem;
+    }
+}
+
+
+.lista-policiais h3 {
+    color: #2d3a4b;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.lista-policiais table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    background: #fff;
+}
+
+.lista-policiais th,
+.lista-policiais td {
+    padding: 0.65rem 0.5rem;
+    text-align: left;
+}
+
+.lista-policiais th {
+    background: #f4f8fb;
+    color: #4f8cff;
+    font-weight: 600;
+    border-bottom: 2px solid #e3e8f0;
+}
+
+.lista-policiais tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+.lista-policiais tr:hover td {
+    background: #eaf4ff;
+    transition: background 0.2s;
+}
+
+.lista-policiais td {
+    color: #2d3a4b;
+    border-bottom: 1px solid #e3e8f0;
+}
+
+@media (max-width: 900px) {
+    .lista-policiais {
+        max-width: 98vw;
+        padding: 1rem 0.2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .form-card {
+        padding: 1rem;
+        min-width: unset;
+        max-width: 98vw;
+    }
+
+    .lista-policiais {
+        padding: 0.5rem 0.1rem;
+        font-size: 0.95rem;
+    }
+
+    .lista-policiais table,
+    .lista-policiais th,
+    .lista-policiais td {
+        font-size: 0.92rem;
+    }
+}
