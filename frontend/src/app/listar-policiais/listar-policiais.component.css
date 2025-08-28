@@ -1,0 +1,209 @@
+/* Container ocupa toda a tela */
+.lista-policiais-container {
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem 0;
+}
+
+/* Card ocupa toda a largura */
+.lista-policiais-card {
+    background: #fff;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border-radius: 0;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10), 0 2px 8px rgba(44, 62, 80, 0.06);
+    min-width: 320px;
+    max-width: 100vw;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    border: 1.5px solid #e3e8f0;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho flexível: título à esquerda, busca à direita */
+.cabecalho-lista {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+    gap: 1.5rem;
+    box-sizing: border-box;
+}
+
+.cabecalho-lista h2 {
+    margin: 0;
+    flex: 1;
+    text-align: left;
+    color: #2d3a4b;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.busca-cpf {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+}
+
+.busca-cpf-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.busca-cpf-row input[type="text"] {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    min-width: 120px;
+    font-size: 1rem;
+}
+
+.busca-cpf-row button {
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.busca-cpf-row button:hover {
+    background: #1251a3;
+}
+
+.cpf-erro {
+    color: #e74c3c;
+    font-size: 0.97rem;
+    margin-top: 2px;
+}
+
+.lista-policiais-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 1rem;
+    background: #fff;
+    min-width: 600px;
+    box-shadow: 0 1px 2px rgba(44, 62, 80, 0.03);
+}
+
+.lista-policiais-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #eaf4ff;
+    color: #2563eb;
+    font-weight: 700;
+    border-bottom: 2.5px solid #b6d0f7;
+    text-align: left;
+    padding: 0.8rem 0.5rem;
+    letter-spacing: 0.5px;
+    font-size: 1.05rem;
+}
+
+.lista-policiais-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.lista-policiais-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.lista-policiais-table tbody tr {
+    transition: background 0.18s;
+}
+
+.lista-policiais-table tbody tr:hover td {
+    background: #f0f6ff;
+}
+
+.lista-policiais-table td {
+    color: #2d3a4b;
+    border-bottom: 1px solid #e3e8f0;
+    padding: 0.7rem 0.5rem;
+    font-size: 1rem;
+}
+
+.lista-policiais-table tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+.lista-policiais-table tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 900px) {
+    .lista-policiais-card {
+        max-width: 100vw;
+        width: 100vw;
+        padding: 1rem 0.2rem;
+        border-radius: 0;
+    }
+
+    .cabecalho-lista {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.7rem;
+    }
+
+    .cabecalho-lista h2 {
+        text-align: center;
+    }
+
+    .busca-cpf {
+        align-items: stretch;
+    }
+
+    .lista-policiais-table {
+        min-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .lista-policiais-table {
+        min-width: 400px;
+        font-size: 0.95rem;
+    }
+
+    .lista-policiais-table th,
+    .lista-policiais-table td {
+        font-size: 0.93rem;
+        padding: 0.5rem 0.3rem;
+    }
+}
+
+.voltar-link {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 8px 18px;
+    background: #1976d2;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.voltar-link:hover {
+    background: #1251a3;
+}
+
+.nenhum-policiais {
+    color: #e74c3c;
+    margin-top: 1rem;
+    font-weight: 500;
+}

@@ -1,92 +1,38 @@
-<div class="form-bg">
-    <div class="form-center">
-        <form [formGroup]="policialForm" (ngSubmit)="onSubmit()" class="form-card">
-            <div class="form-header">
-                 
-                     
-                <h2>Cadastrar Policial</h2>
-            </div>
-            <div *ngIf="successMsg" class="msg-success animated-fade">{{ successMsg }}</div>
-            <div *ngIf="errorMsg" class="msg-error animated-fade">{{ errorMsg }}</div>
-            <div *ngIf="loading" class="msg-loading animated-fade">Enviando...</div>
+<form [formGroup]="policialForm" (ngSubmit)="onSubmit()">
+    <h2>Cadastrar Policial</h2>
+    <div *ngIf="successMsg" class="msg-success">{{ successMsg }}</div>
+    <div *ngIf="errorMsg" class="msg-error">{{ errorMsg }}</div>
+    <div *ngIf="loading" class="msg-loading">Enviando...</div>
 
-            <div class="form-group">
-                <label for="rg_civil">RG Civil:</label>
-                <input id="rg_civil" type="text" formControlName="rg_civil" required />
-                <div class="msg-erro"
-                    *ngIf="policialForm.get('rg_civil')!.invalid && policialForm.get('rg_civil')!.touched">
-                    RG Civil é obrigatório.
-                </div>
-            </div>
+    <label for="rg_civil">RG Civil:</label>
+    <input id="rg_civil" type="text" formControlName="rg_civil" required />
+    <div *ngIf="policialForm.get('rg_civil')?.invalid && policialForm.get('rg_civil')?.touched"
+        style="color:#e74c3c;font-size:0.97rem;">RG Civil é obrigatório.</div>
 
-            <div class="form-group">
-                <label for="rg_militar">RG Militar:</label>
-                <input id="rg_militar" type="text" formControlName="rg_militar" required />
-                <div class="msg-erro"
-                    *ngIf="policialForm.get('rg_militar')!.invalid && policialForm.get('rg_militar')!.touched">
-                    RG Militar é obrigatório.
-                </div>
-            </div>
+    <label for="rg_militar">RG Militar:</label>
+    <input id="rg_militar" type="text" formControlName="rg_militar" required />
+    <div *ngIf="policialForm.get('rg_militar')?.invalid && policialForm.get('rg_militar')?.touched"
+        style="color:#e74c3c;font-size:0.97rem;">RG Militar é obrigatório.</div>
 
-            <div class="form-group">
-                <label for="cpf">CPF:</label>
-                <input id="cpf" type="text" formControlName="cpf" maxlength="11" required />
-                <div class="msg-erro" *ngIf="policialForm.get('cpf')!.invalid && policialForm.get('cpf')!.touched">
-                    CPF inválido. Deve conter 11 dígitos numéricos.
-                </div>
-            </div>
+    <label for="cpf">CPF:</label>
+    <input id="cpf" type="text" formControlName="cpf" maxlength="11" required />
+    <div *ngIf="cpfErro" style="color:#e74c3c;font-size:0.97rem;">{{ cpfErro }}</div>
+    <div *ngIf="policialForm.get('cpf')?.invalid && policialForm.get('cpf')?.touched && !cpfErro"
+        style="color:#e74c3c;font-size:0.97rem;">CPF é obrigatório e deve conter 11 dígitos numéricos.</div>
 
-            <div class="form-group">
-                <label for="data_nascimento">Data de Nascimento:</label>
-                <input id="data_nascimento" type="date" formControlName="data_nascimento" required />
-                <div class="msg-erro"
-                    *ngIf="policialForm.get('data_nascimento')!.invalid && policialForm.get('data_nascimento')!.touched">
-                    Data de nascimento é obrigatória.
-                </div>
-            </div>
+    <label for="data_nascimento">Data de Nascimento:</label>
+    <input id="data_nascimento" type="date" formControlName="data_nascimento" required />
+    <div *ngIf="policialForm.get('data_nascimento')?.invalid && policialForm.get('data_nascimento')?.touched"
+        style="color:#e74c3c;font-size:0.97rem;">Data de nascimento é obrigatória.</div>
 
-            <div class="form-group">
-                <label for="matricula">Matrícula:</label>
-                <input id="matricula" type="text" formControlName="matricula" required />
-                <div class="msg-erro"
-                    *ngIf="policialForm.get('matricula')!.invalid && policialForm.get('matricula')!.touched">
-                    Matrícula é obrigatória.
-                </div>
-            </div>
+    <label for="matricula">Matrícula:</label>
+    <input id="matricula" type="text" formControlName="matricula" required />
+    <div *ngIf="policialForm.get('matricula')?.invalid && policialForm.get('matricula')?.touched"
+        style="color:#e74c3c;font-size:0.97rem;">Matrícula é obrigatória.</div>
 
-            <div class="form-actions">
-                <button type="submit" [disabled]="loading">Cadastrar</button>
-                <button type="reset">Limpar</button>
-            </div>
-        </form>
-    </div>
-
-    <div class="lista-policiais" *ngIf="policiais.length > 0">
-        <h3>Policiais cadastrados</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>RG Civil</th>
-                    <th>RG Militar</th>
-                    <th>CPF</th>
-                    <th>Data de Nascimento</th>
-                    <th>Matrícula</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let policial of policiais">
-                    <td>{{ policial.rg_civil }}</td>
-                    <td>{{ policial.rg_militar }}</td>
-                    <td>{{ policial.cpf }}</td>
-                    <td>{{ policial.data_nascimento | date:'dd/MM/yyyy' }}</td>
-                    <td>{{ policial.matricula }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <footer class="footer-app">
-        <div class="footer-title">Sistema de Cadastro de Policial</div>
-        <span>© 2025</span>
-    </footer>
+    <button type="submit" [disabled]="loading">Cadastrar</button>
+    <button type="reset">Limpar</button>
+</form>
+<div style="display: flex; justify-content: center; margin-top: 18px;">
+    <button type="button" (click)="verPoliciais()">Ver policiais cadastrados</button>
 </div>

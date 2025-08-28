@@ -1,1 +1,36 @@
-<p>listar-policiais works!</p>
+<div class="lista-policiais-container">
+    <div class="lista-policiais-card">
+        <div class="cabecalho-lista">
+            <h2>Policiais cadastrados</h2>
+            <div class="busca-cpf">
+                <div class="busca-cpf-row">
+                    <input type="text" [(ngModel)]="cpfBusca" maxlength="11" placeholder="Buscar por CPF" />
+                    <button (click)="buscarPorCpf()">Pesquisar</button>
+                </div>
+                <div *ngIf="cpfErro" class="cpf-erro">{{ cpfErro }}</div>
+            </div>
+        </div>
+        <table class="lista-policiais-table" *ngIf="policiaisFiltrados.length > 0">
+            <thead>
+                <tr>
+                    <th>RG Civil</th>
+                    <th>RG Militar</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                    <th>Matrícula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let policial of policiaisFiltrados">
+                    <td>{{ policial.rg_civil }}</td>
+                    <td>{{ policial.rg_militar }}</td>
+                    <td>{{ policial.cpf }}</td>
+                    <td>{{ policial.data_nascimento | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ policial.matricula }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="policiaisFiltrados.length === 0" class="nenhum-policiais">Nenhum policial cadastrado.</div>
+        <button class="voltar-link" type="button" (click)="voltarParaCadastro()">Voltar para cadastro</button>
+    </div>
+</div>
